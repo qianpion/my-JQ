@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>右下角的弹窗关闭</title>
+	<style>
+         .ad{
+         	position: fixed;
+         	bottom: 0;
+         	right: 0;
+         	background: url(imgs/ad.jpg) no-repeat;
+         	width: 230px;
+         	height: 120px;
+         	display: none;
+         }
+
+         .ad span{
+         	width: 40px;
+         	height: 18px;
+         	position: absolute;
+         	right: 0;
+         	top:0;
+         	background: url(imgs/h.jpg) no-repeat;
+         }
+	</style>
+	<script src="../jquery-1.11.1.min.js"></script>
+	<script>
+        $(document).ready(function(){
+             $(".ad")
+         	       .slideDown("normal")
+         	       .slideUp("slow")
+         	       .fadeIn(1000)
+                   .children('span').click(function(){
+                   	$(this).parent().fadeOut();
+                   });
+        });
+	</script>
+</head>
+<body>
+	<div class="ad">
+		<span></span>
+	</div>
+</body>
+</html>

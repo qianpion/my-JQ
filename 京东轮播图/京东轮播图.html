@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东轮播图</title>
+	<style>
+         *{margin:0;padding:0;}
+         ul,ol{list-style: none;}
+         img{vertical-align: top;}
+         .wrap{
+         	width: 670px;
+         	height: 240px;
+         	margin:100px auto;
+            overflow: hidden;
+            position: relative;
+         }
+         .wrap ol{
+         	position: absolute;
+         	bottom: 10px;
+         	right:0;
+         	width: 190px;
+         }
+         .wrap ol li{
+         	float: left;
+         	width: 20px;
+         	height: 20px;
+         	margin:0 5px;
+         	text-align: center;
+         	line-height: 20px;
+         	border-radius: 50%;
+         	cursor: pointer;
+         	background: #abc;
+         }
+         .wrap ol li.current{
+         	background: pink;
+         }
+	</style>
+	<script src="../jquery-1.11.1.min.js"></script>
+	<script>
+         $(function(){
+         	$(".wrap ol li").mouseenter(function(){
+         		$(this).addClass('current').siblings().removeClass('current');
+         		$(".wrap ul li").eq($(this).index()).fadeIn("fast").siblings().fadeOut();
+         	});
+         });
+	</script>
+</head>
+<body>
+	<div class="wrap">
+		<ul>
+			<li><img src="images/1.jpg" alt=""></li>
+			<li><img src="images/2.jpg" alt=""></li>
+			<li><img src="images/3.jpg" alt=""></li>
+			<li><img src="images/4.jpg" alt=""></li>
+			<li><img src="images/5.jpg" alt=""></li>
+		</ul>
+		<ol>
+			<li class="current">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ol>
+	</div>
+</body>
+</html>

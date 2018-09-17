@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>360图片导航</title>
+	<style>
+        *{
+        	margin:0;
+        	padding:0;
+        }
+
+        ul{
+        	list-style: none;
+        }
+        
+        img{
+        	display: block;
+        }
+        
+        .guide{
+        	width: 752px;
+        	border:1px solid #ccc;
+        	padding: 10px 0 0 10px;
+        	margin:100px auto;
+        	font-family: arial;
+        	overflow: hidden;
+        }
+
+        .guide li{
+        	float: left;
+        	width: 178px;
+        	height: 125px;
+        	margin:0 10px 10px 0;
+        	overflow: hidden;
+        	position: relative;
+        }
+
+        .guide li p ,.guide li div{
+        	width: 178px;
+        	height: 25px;
+        	position: absolute;/*都定位脱离标准流*/
+        	font-size: 14px;
+        	text-align: center;
+        	line-height: 25px;
+        	color:white;
+        	left:0;
+        	bottom: -25px;
+        	_bottom:-26px;
+        	
+        }
+
+         .guide li div{
+        	background-color:#000;
+        }
+
+        .guide li p{
+        	background: url(images/bg.png) no-repeat 5px 0;
+        }
+      
+	</style>
+	<!-- 首先引包 -->
+	<script type="text/javascript" src="../jquery-1.11.1.min.js"></script>
+	<script>
+         //入口函数
+         $(function(){
+         	//获取元素及创建元素
+         	var div=$("<div></div>"),speed=388,$p=$(".guide p");
+         	$p.before(div);
+         	$(".guide div").fadeTo(0,0.5);
+         	//遍历p,给不同的p添加图标
+         	$p.each(function(index,ele){
+         		var y=index*25;
+         		$(ele).css("background-position","5px -"+y+"px");
+         	});
+         	//滑动操作
+         	$(".guide li").hover(function() {
+         		/* Stuff to do when the mouse enters the element */
+         		$(this).children("div,p").stop().animate({"bottom":0},speed);
+         	}, function() {
+         		/* Stuff to do when the mouse leaves the element */
+         		$(this).children("div,p").stop().animate({"bottom":-26},speed);
+         	});
+         });
+	</script>
+</head>
+<body>
+	<div class="guide">
+		<ul>
+			<li>
+				<a href="#"><img src="images/01.JPG" alt=""></a>
+				<p>百度一下，你就知道</p>
+			</li>
+			<li>
+				<a href="#"><img src="images/02.JPG" alt=""></a>
+				<p>百度一下，你就知道</p>
+			</li>
+			<li>
+				<a href="#"><img src="images/03.JPG" alt=""></a>
+				<p>百度一下，你就知道</p>
+			</li>
+			<li>
+				<a href="#"><img src="images/04.JPG" alt=""></a>
+				<p>百度一下，你就知道</p>
+			</li>
+			<li>
+				<a href="#"><img src="images/05.JPG" alt=""></a>
+				<p>百度一下，你就知道</p>
+			</li>
+			<li>
+				<a href="#"><img src="images/06.JPG" alt=""></a>
+				<p>百度一下，你就知道</p>
+			</li>
+			<li>
+				<a href="#"><img src="images/07.JPG" alt=""></a>
+				<p>百度一下，你就知道</p>
+			</li>
+			<li>
+				<a href="#"><img src="images/08.JPG" alt=""></a>
+				<p>百度一下，你就知道</p>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
